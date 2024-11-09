@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "a8349f9d-7d12-4417-b8b3-814c6eb8d5a1",
+		"name": "Leads Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11535858"
+	},
+	"item": [
+		{
+			"name": "List All Leads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{node_url}}/leads/list",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lead Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{node_url}}/leads/view/:leadId",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						"view",
+						":leadId"
+					],
+					"variable": [
+						{
+							"key": "leadId",
+							"value": "72"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Leads",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"leadData\": {\r\n        \"name\": \"John Doe\",\r\n        \"email\": \"john.doe@example.com\",\r\n        \"phone\": \"1234567890\",\r\n        \"type\": \"Commercial\" // Residential or Commercial\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/leads/insert-lead",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						"insert-lead"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Salesperson",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salespersonId\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/leads/:leadId/updateSalesperson",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						":leadId",
+						"updateSalesperson"
+					],
+					"variable": [
+						{
+							"key": "leadId",
+							"value": "72"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Lead",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accept_lead\": false,\r\n    \"comment\": \"Silahkan di Follow Up\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/leads/:leadId/accept-lead",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						":leadId",
+						"accept-lead"
+					],
+					"variable": [
+						{
+							"key": "leadId",
+							"value": "71"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"leadId\": 72,\r\n    \"address\": \"Jl. Mawar No. 1 Kebagusan\",\r\n    \"clientName\": \"Ari Ariyanto\",\r\n    \"surveyDate\": \"2024-11-08\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/survey-request",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"survey-request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Status Survey",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// For Approved Survey\r\n// {\r\n//     \"status\": \"Survey Approved\", //  Survey Approved or Survey Rejected or Survey Completed\r\n//     \"comment\": \"Approve Survey Request\",\r\n//     \"notes\": null,\r\n//     \"images\": []\r\n// }\r\n\r\n// // For Rejected Survey\r\n// {\r\n//     \"status\": \"Survey Rejected\", //  Survey Approved or Survey Rejected or Survey Completed\r\n//     \"comment\": \"Reject Survey Request\",\r\n//     \"notes\": null,\r\n//     \"images\": []\r\n// }\r\n\r\n// // For Complete Survey\r\n{\r\n    \"status\": \"Survey Completed\", //  Survey Approved or Survey Rejected or Survey Completed\r\n    \"comment\": \"Complete Survey Request\",\r\n    \"notes\": \"lokasi sudah sesuai\",\r\n    \"images\": [\r\n        \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/UB4n9sAAAAASUVORK5CYII=\",\r\n        \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/UB4n9sAAAAASUVORK5CYII=\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/survey/:surveyId/status",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"survey",
+						":surveyId",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "surveyId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Final Proposal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"proposalDetails\": \"Offering best price of $10,000 with a 12-month service plan.\",\r\n    \"comment\": \"Salesperson created the final proposal for client approval.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/leads/:leadId/final-proposal",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						":leadId",
+						"final-proposal"
+					],
+					"variable": [
+						{
+							"key": "leadId",
+							"value": "72"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deal Proposal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientResponse\": \"yes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{node_url}}/leads/:leadId/deal",
+					"host": [
+						"{{node_url}}"
+					],
+					"path": [
+						"leads",
+						":leadId",
+						"deal"
+					],
+					"variable": [
+						{
+							"key": "leadId",
+							"value": "72"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

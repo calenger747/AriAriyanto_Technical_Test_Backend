@@ -1,0 +1,20 @@
+{
+  "name": "solar-panel-leads-management-api",
+  "version": "1.0.0",
+  "description": "A leads management system for solar panel installation with Node.js, Express, and MySQL.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.7"
+  },
+  "author": "Ari Ariyanto",
+  "license": "ISC"
+}
